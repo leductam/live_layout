@@ -1,0 +1,10 @@
+<section class="main">
+    <%= if @action == "tablive" do %>
+    <button phx-click="back_hero" phx-target="<%= @myself %>">Back to Hero</button>
+    <%= live_render @socket, LiveLayoutWeb.TabLive, id: "TabLive"%>
+
+    <% else %>
+    <%= live_component(@socket, LiveLayoutWeb.HeroContentComponent, id: "HeroContentComponent") %>
+    <button phx-click="to_tablive" phx-target="<%= @myself %>">To TabLiveView</button>
+    <% end %>
+</section>
